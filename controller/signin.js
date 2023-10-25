@@ -30,7 +30,7 @@ async function InsertVerifyUser(name, email, password){
         <p>team</p>`
 
         await newUser.save()
-        sendMail(email, "VerifyUser", content)
+        sendMail(newUser.email, "VerifyUser", content)
 
     }catch(e){
         console.log(e)
