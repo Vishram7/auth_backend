@@ -71,6 +71,8 @@ async function InserSignUser(token) {
         return `<h4> Hi, there</h4>
         <h5> welcome to the app </h5>
         <p> You are successfully registered</p>
+        <a href="${loginlink}">go to login</a>
+        <h1>testing</h1>
         <p>Regards</p>
         <p>Team</p>`
     }
