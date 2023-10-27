@@ -57,9 +57,11 @@ async function InserSignUser(token) {
         })
         await newUser.save()
         await userVerify.deleteOne({token:token})
+        const loginlink = 'https://vishram-authentication.netlify.app/login'
         const content = `<h4> Registration successfull</h4>
         <h5> welcome to the app </h5>
         <p> You are successfully registered</p>
+        <a href="${loginlink}">go to login</a>
         <p>Regards</p>
         <p>Team</p>`
 
