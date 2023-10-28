@@ -22,12 +22,12 @@ async function InsertVerifyUser(name, email, password){
         })
 
         const activationLink = `https://auth-backend-iu28.onrender.com/signin/${token}`
-        const content = `<h4> hi, there </h4>
-        <h5> welcome to the app </h5>
-        <p> thank you for signing up. Click on the below link to activate</p>
+        const content = `<h4> Hi, ${neuUser.name} </h4>
+        <h5> Welcome to the app </h5>
+        <p> Thank you for signing up. Click on the below link to activate</p>
         <a href = "${activationLink}">click here</a>
-        <p>regards</p>
-        <p>team</p>`
+        <p>Regards</p>
+        <p>Vishram</p>`
 
         await newUser.save()
         sendMail(newUser.email, "VerifyUser", content)
@@ -59,20 +59,17 @@ async function InserSignUser(token) {
         await userVerify.deleteOne({token:token})
         const loginlink = 'https://vishram-authentication.netlify.app/login'
         const content = `<h4> Registration successfull</h4>
-        <h5> welcome to the app </h5>
-        <p> You are successfully registered</p>
-        <a href="${loginlink}">go to login</a>
-        <h1>testing</h1>
+        <h1> Welcome to the app </h1>
+        <h3>Go back to login page to continue</h3>
         <p>Regards</p>
         <p>Team</p>`
 
         sendMail(newUser.email, "Registration Successfull", content)
 
-        return `<h4> Hi, there</h4>
-        <h5> welcome to the app </h5>
+        return `<h4> Hi, ${newUser.name}</h4>
+        <h1> Welcome to the app </h1>
+        <h3> Go back to Login page to continue </h3>
         <p> You are successfully registered</p>
-        <a href="${loginlink}">go to login</a>
-        <h1>testing</h1>
         <p>Regards</p>
         <p>Team</p>`
     }
